@@ -28,5 +28,5 @@ This is a minimal Python Flask web application built as a simple example project
 
 1. **Clone the repository**:
    ```bash
-   git clone https://github.com/<your-username>/azni-ce9-flask-app.git
+   git clone https://github.com/<azniosman>/azni-ce9-flask-app.git
    cd azni-ce9-flask-app
