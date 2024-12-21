@@ -7,6 +7,9 @@ A simple Python Flask application that displays "Hello Azni!" in the browser.
 - [Overview](#overview)
 - [Requirements](#requirements)
 - [Installation](#installation)
+- [Usage](#usage)
+  - [Start the Flask App](#start-the-flask-app)
+  - [Stop the Flask App](#stop-the-flask-app)
 
 ---
 
@@ -28,5 +31,5 @@ This is a minimal Python Flask web application built as a simple example project
 
 1. **Clone the repository**:
    ```bash
-   git clone https://github.com/<azniosman>/azni-ce9-flask-app.git
+   git clone https://github.com/azniosman/azni-ce9-flask-app.git
    cd azni-ce9-flask-app
