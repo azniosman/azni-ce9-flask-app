@@ -1,0 +1,50 @@
+#!/bin/bash
+
+# Define the virtual environment directory
+VENV_DIR="venv"
+
+# Ensure the script is running in the directory containing app.py
+if [ ! -f "app.py" ]; then
+  echo "Error: app.py not found in the current directory."
+  echo "Please navigate to the directory containing app.py and run this script."
+  exit 1
+fi
+
+# Check if the virtual environment exists
+if [ ! -d "$VENV_DIR" ]; then
+  echo "Virtual environment not found. Creating one..."
+  python3 -m venv $VENV_DIR
+  
+  if [ $? -ne 0 ]; then
+    echo "Failed to create the virtual environment. Ensure Python 3 is installed."
+    exit 1
+  fi
+  
+  echo "Virtual environment created successfully."
+fi
+
+# Activate the virtual environment
+source $VENV_DIR/bin/activate  # For macOS/Linux
+# Uncomment the following line if using Windows:
+# source $VENV_DIR/Scripts/activate
+
+# Check if Flask is installed, and install it if not
+if ! pip show flask > /dev/null 2>&1; then
+  echo "Flask not found. Installing Flask..."
+  pip install flask
+  
+  if [ $? -ne 0 ]; then
+    echo "Failed to install Flask. Ensure pip is working correctly."
+    exit 1
+  fi
+  
+  echo "Flask installed successfully."
+fi
+
+# Set Flask environment variables
+export FLASK_APP=app.py
+export FLASK_ENV=development  # Optional: Enables debug mode
+
+# Start the Flask application on port 8080
+echo "Starting Flask application on port 8080..."
+flask run --port=8080
